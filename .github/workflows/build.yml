@@ -1,0 +1,26 @@
+name: build
+
+on: [push]
+
+jobs:
+  build-dart-latest:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: pub upgrade
+    - name: Run dependency validator
+      run: pub run dependency_validator --ignore dart_code_metrics
+    - name: Run dartfmt
+      run: dartfmt --set-exit-if-changed -n .
+    - name: Run dartanalyzer
+      run: dartanalyzer --fatal-warnings --fatal-infos --fatal-lints lib/ test/
+    - name: Run dart-code-metrics
+      run: pub run dart_code_metrics:metrics lib
+    - name: Run tests
+      run: pub run test

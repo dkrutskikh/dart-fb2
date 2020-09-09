@@ -1,0 +1,1 @@
+class FB2Reader {}
