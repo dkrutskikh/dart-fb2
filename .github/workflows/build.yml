@@ -21,7 +21,7 @@ jobs:
         dart analyze --fatal-warnings --fatal-infos lib
         dart analyze --fatal-warnings --fatal-infos test
     - name: Run dart-code-metrics
-      run: dart pub run dart_code_metrics lib
+      run: dart pub run dart_code_metrics:metrics lib
     - name: Run formatter
       run: dart format --set-exit-if-changed .
     - name: Run tests
