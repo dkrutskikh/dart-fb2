@@ -13,14 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: pub upgrade
+      run: dart pub upgrade
     - name: Run dependency validator
-      run: pub run dependency_validator --ignore dart_code_metrics
-    - name: Run dartfmt
-      run: dartfmt --set-exit-if-changed -n .
-    - name: Run dartanalyzer
-      run: dartanalyzer --fatal-warnings --fatal-infos --fatal-lints lib/ test/
+      run: dart pub run dependency_validator --ignore dart_code_metrics
+    - name: Run analyzer
+      run:  |
+        dart analyze --fatal-warnings --fatal-infos lib
+        dart analyze --fatal-warnings --fatal-infos test
     - name: Run dart-code-metrics
-      run: pub run dart_code_metrics:metrics lib
+      run: dart pub run dart_code_metrics:metrics lib
+    - name: Run formatter
+      run: dart format --set-exit-if-changed .
     - name: Run tests
-      run: pub run test
+      run: dart test
