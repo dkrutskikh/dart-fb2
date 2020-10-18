@@ -6,6 +6,10 @@ homepage: https://github.com/dkrutskikh/dart-fb2
 environment:
   sdk: ">=2.10.0 <3.0.0"
 
+dependencies:
+  meta: ^1.2.0
+  xml: ^4.5.0
+
 dev_dependencies:
   dart_code_metrics: ^2.0.0
   dependency_validator: ^1.5.0
