@@ -1,6 +1,4 @@
-@TestOn('vm')
-
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
 class ObjectMock extends Mock implements Object {}
