@@ -2,4 +2,4 @@
 
 ## Unreleased
 
-- Initial structure
+* feat: introduce genre
